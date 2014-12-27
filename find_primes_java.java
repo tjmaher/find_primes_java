@@ -58,6 +58,17 @@ public class find_primes_java {
         Integer intCountOfPrimes = 1;
         Integer testNum = 3;
 
+/* 
+	First, we print out to the screen, prompting the user on how many prime numbers they want us to find.
+	If the next set of characters are not an integer (such a decimal or a set of characters), we tell 
+	the user that they have entered an Invalid Entry, and will have to enter new text. 
+	If the next set of characters read by the scanner is less than 1 (0, -1, -2...), we also prompt the user 
+	that they entered an Invalid Entry. 
+	
+	If these conditions are not seen, we exit the Do While loop and continue with the program, since the 
+	maxNumPrimes is proven to be 1, 2, 3... or some other positive non-zero integer. 
+*/
+
         System.out.println(strUserPrompt);
         do {
             while (!scanner.hasNextInt()) {
@@ -71,8 +82,23 @@ public class find_primes_java {
         System.out.println("\n... Attempting to find the first " + maxNumPrimes +
                 " prime numbers...");
 
+/*
+	While generating the ArrayList of prime numbers, we will add the first prime number,
+	a "2", to the array, since we know that is prime. 
+*/
+
         ArrayList ArrayOfPrimes = new ArrayList();
         ArrayOfPrimes.add(2);
+        
+/* 
+	Starting with the number "3", we will test every other number to see if it is prime. 
+	If it is prime, we will add that testNum to the Array List of Primes. 
+	After the number is added, we will increase the count of primes by one.
+	This process will stop when the number of primes that have been added isn't equal to 
+	the maxiumum number of primes that the user has selected.  
+	It will test 3, then 5, then 7, and the rest of the series of odd numbers, since we know that 
+	all even numbers except "2" is not prime. 
+*/
 
         while (intCountOfPrimes < maxNumPrimes){
             if (isPrime(testNum)) {
